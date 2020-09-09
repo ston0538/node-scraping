@@ -10,9 +10,10 @@ async function getDescription(symbol) {
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
     // await page.goto("http://ih.advfn.com/stock-market/NASDAQ/TSLA/stock-price");
-    await page.goto("https://www.airbnb.co.kr/d/howairbnbworks");
+    // await page.goto("https://www.airbnb.co.kr/d/howairbnbworks");
+    await page.goto("https://seouldonuts.co.kr/");
     const text = await page.evaluate(() => {
-      return document.querySelector("._4gelgl").innerText;
+      return document.querySelector(".hide.css-1mhthxx").innerText;
     });
     await browser.close();
     return text;
