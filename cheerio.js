@@ -15,9 +15,7 @@ async function getDescription(symbol) {
     //   method: "GET",
     //   url: `http://ih.advfn.com/stock-market/NASDAQ/TSLA/stock-price`,
     // });
-    const response = await axios.get(
-      "http://ih.advfn.com/stock-market/NASDAQ/TSLA/stock-price"
-    );
+    const response = await axios.get("https://pxd-fed-blog.web.app/");
 
     // const response = await fetch(
     //   `http://ih.advfn.com/stock-market/NASDAQ/${symbol}/stock-price`
@@ -26,7 +24,7 @@ async function getDescription(symbol) {
     // return $("#content > .TableElement:last-child").text().trim();
     // const $ = cheerio.load(text);
     const $ = cheerio.load(response.data);
-    return $("#content > .TableElement:last-child").text().trim();
+    return $(".post-right").text().trim();
   } catch (error) {
     console.log("error", error);
   }
